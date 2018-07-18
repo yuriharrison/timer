@@ -11,3 +11,8 @@ The timer.py module is able to:
 ### Documentation & Examples
 
 The classes are very simple to use. See the [documentation](./docs/timer.md) for more information and examples.
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details

@@ -177,7 +177,7 @@ or methods.
 __Example__
 
 
-```
+```python
 import time
 
 
