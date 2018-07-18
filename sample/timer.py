@@ -1,5 +1,6 @@
 """Timer"""
 import time
+import functools
 from threading import Thread
 
 
@@ -81,7 +82,97 @@ class Chronometer:
     @property
     def running(self):
         return self.__running
+
+
+class ChronometerDecorator(Chronometer):
+    """Chronometer Decorator
+
+    Use this decorator to measure time when executing functions
+    or methods.
+
+    # Example
+
+    ```
+    import time
+
+
+    @ChronometerDecorator()
+    def foo(msg):
+        print(msg)
+        time.sleep(3)
+
+    @ChronometerDecorator(print_sum=True)
+    def bar():
+        time.sleep(1)
+
+    class baz:
+        def __init__(self):
+            self.message = 'Works on methods as well!'
+            
+        @ChronometerDecorator(method=True)
+        def qux(self):
+            time.sleep(3)
+            print(self.message)
+
+    foo('Starting ChronometerDecorator test!')
+    for _ in range(3): bar()
+    baz().qux()
+
+    ''' Result example:
+    Starting ChronometerDecorator test!
+    [ChronometerDecorator]: Function foo > Time: 2.9994740292006554
+    [ChronometerDecorator]: Function bar > Time: 1.000767622853573 - Total: 1.000767622853573
+    [ChronometerDecorator]: Function bar > Time: 0.9999331681037802 - Total: 2.000700790957353
+    [ChronometerDecorator]: Function bar > Time: 0.9999622418665695 - Total: 3.0006630328239225
+    Works on methods as well!
+    [ChronometerDecorator]: Method qux > Time: 3.0000543717121673
+    '''
+
+    ```
+    """
     
+    def __init__(self, method=False, print_sum=False):
+        self.time_ls = []
+        self.method = method
+        self.print_sum = print_sum
+        super().__init__()
+        
+    def __call__(self, function=None):
+        self._function = function
+        self.func_name = function.__name__
+        
+        if self.method:
+            return functools.partialmethod(ChronometerDecorator.method_call, self)
+        else:
+            return self.function_call
+        
+    def function_call(self, *a, **kw):
+        self.start()
+        self._function(*a, **kw)
+        self.stop()
+        self.register()
+
+    @staticmethod
+    def method_call(func_self, self, *a, **kw):
+        self.start()
+        self._function(func_self, *a, **kw)
+        self.stop()
+        self.register()
+        
+    def register(self):
+        self.time_ls.append(self.partial)
+        
+        msg_sum = ''
+        if self.print_sum:
+            msg_sum = ' - Total: {}'.format(sum(self.time_ls))
+            
+        msg_func_name = 'Method' if self.method else 'Function' 
+        msg_func_name += ' {} >'.format(self.func_name)
+        msg = '[ChronometerDecorator]: {} Time: {}{}'\
+            .format(msg_func_name, self.partial, msg_sum)
+        print(msg)
+        self.reset()
+
 
 class Timer(Chronometer):
     """Countdown Timer with callback
