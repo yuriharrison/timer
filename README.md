@@ -1,10 +1,12 @@
 # Timer
 
-This project contains a single python module (timer.py).
+Powerful python Timer with useful functions and easy to use.
 
-The timer.py module is able to:
-- start and measure time;
-- countdown and make a function callback after it finishes;
+This project contains a single module "timer.py".
+
+The module has:
+- simple timing;
+- countdown with a function callback after it finishes;
 - context manager support;
 - decorator to measure time on functions and methods.
 
