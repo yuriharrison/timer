@@ -1,0 +1,10 @@
+*.pyc
+*.pyo
+*.egg-info
+ui_design/
+docs/site/
+docs/sources/
+docs/theme/
+
+# developer enviroments
+.vscode/
