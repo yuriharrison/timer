@@ -162,7 +162,7 @@ Call Chronometer.stop(reset=True)
 
 ----
 
-<span style="float:right;">[[source code]](https://github.com/yuriharrison/timer/blob/master/connectFourLab/game/timer.py#L87)</span>
+<span style="float:right;">[[source code]](https://github.com/yuriharrison/timer/blob/master/sample/game/timer.py#L87)</span>
 ## ChronometerDecorator
 
 ```python
