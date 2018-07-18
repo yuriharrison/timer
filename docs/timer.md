@@ -1,8 +1,8 @@
-<span style="float:right;">[[source code]](https://github.com/yuriharrison/connect-four-lab/blob/master/connectFourLab/game/timer.py#L177)</span>
+<span style="float:right;">[[source code]](https://github.com/yuriharrison/timer/blob/master/sample/timer.py#L177)</span>
 ## Timer
 
 ```python
-connectFourLab.game.timer.Timer(time, callback=None)
+timer.Timer(time, callback=None)
 ```
 
 Countdown Timer with callback
@@ -81,11 +81,11 @@ Stops the countdown and stops the running thread
 
 ----
 
-<span style="float:right;">[[source code]](https://github.com/yuriharrison/connect-four-lab/blob/master/connectFourLab/game/timer.py#L7)</span>
+<span style="float:right;">[[source code]](https://github.com/yuriharrison/timer/blob/master/sample/timer.py#L7)</span>
 ## Chronometer
 
 ```python
-connectFourLab.game.timer.Chronometer()
+timer.Chronometer()
 ```
 
 Simple chronometer with context manager support
@@ -166,7 +166,7 @@ Call Chronometer.stop(reset=True)
 ## ChronometerDecorator
 
 ```python
-connectFourLab.game.timer.ChronometerDecorator(method=False, print_sum=False)
+timer.ChronometerDecorator(method=False, print_sum=False)
 ```
 
 Chronometer Decorator
