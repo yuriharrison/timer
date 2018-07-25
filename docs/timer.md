@@ -1,4 +1,4 @@
-<span style="float:right;">[[source code]](https://github.com/yuriharrison/timer/blob/master/sample/timer.py#L177)</span>
+<span style="float:right;">[[source code]](https://github.com/yuriharrison/timer/blob/master/timer/timer.py#L177)</span>
 ## Timer
 
 ```python
@@ -81,7 +81,7 @@ Stops the countdown and stops the running thread
 
 ----
 
-<span style="float:right;">[[source code]](https://github.com/yuriharrison/timer/blob/master/sample/timer.py#L7)</span>
+<span style="float:right;">[[source code]](https://github.com/yuriharrison/timer/blob/master/timer/timer.py#L7)</span>
 ## Chronometer
 
 ```python
@@ -162,7 +162,7 @@ Call Chronometer.stop(reset=True)
 
 ----
 
-<span style="float:right;">[[source code]](https://github.com/yuriharrison/timer/blob/master/sample/timer.py#L87)</span>
+<span style="float:right;">[[source code]](https://github.com/yuriharrison/timer/blob/master/timer/timer.py#L87)</span>
 ## ChronometerDecorator
 
 ```python
